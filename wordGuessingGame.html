@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="message"></div>
+<br>
+<input type="text" id="txt">
+<input type="button" id="btn"  value="Check">
+<br>
+<div id="val"></div>
+<script>
+
+    var myArray=["mona","dhruti","mau","tau","nikita"];
+    var rno=Math.floor(Math.random()*myArray.length);
+    document.getElementById('message').innerHTML=myArray[rno];
+
+    for(var x=0;x<myArray.length;x++ ){
+        var sl=myArray[rno];
+        var a=sl.split('').sort(function () {
+            return 0.5* Math.random();
+        }).join('');
+        document.getElementById('message').innerHTML=a;
+
+        var btn=document.getElementById("btn");
+        btn.addEventListener('click',function () {
+            var a=document.getElementById('txt').value;
+            if(sl==a)
+            {
+                document.getElementById('val').innerHTML="You Win";
+            }
+            else
+            {
+                document.getElementById('val').innerHTML="You Loss";
+            }
+        })
+
+    }
+
+</script>
+</body>
+</html>
